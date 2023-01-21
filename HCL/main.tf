@@ -18,7 +18,5 @@ terraform {
 }
 
 provider "oci" {
-  region              = "us-ashburn-1"
-  auth                = "APIKey"
-  config_file_profile = "DEFAULT"
+  region = var.oci_region
 }
