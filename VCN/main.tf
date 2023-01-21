@@ -18,8 +18,8 @@ terraform {
 
 provider "oci" {
   region              = "us-ashburn-1"
-  auth                = "SecurityToken"
-  config_file_profile = "learn-terraform"
+  auth                = "APIKey"
+  config_file_profile = "DEFAULT"
 }
 
 resource "oci_core_vcn" "internal" {
