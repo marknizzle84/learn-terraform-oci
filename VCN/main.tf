@@ -17,21 +17,5 @@ terraform {
 }
 
 provider "oci" {
-  region              = "us-ashburn-1"
-  auth                = "APIKey"
-  config_file_profile = "DEFAULT"
-}
-
-resource "oci_core_vcn" "internal" {
-  dns_label      = "internal"
-  cidr_block     = "172.16.0.0/20"
-  compartment_id = "ocid1.compartment.oc1..aaaaaaaay7axxquulavcanae6lpym5ruwwmgax3sgb6slmpzh4d5lfkwtepa"
-  display_name   = "My internal VCN"
-}
-
-resource "oci_core_vcn" "internal-test" {
-  dns_label      = "testing"
-  cidr_block     = "172.16.16.0/20"
-  compartment_id = "ocid1.compartment.oc1..aaaaaaaay7axxquulavcanae6lpym5ruwwmgax3sgb6slmpzh4d5lfkwtepa"
-  display_name   = "My internal testing VCN"
+  region = var.oci_region
 }
