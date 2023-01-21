@@ -5,9 +5,15 @@ terraform {
       source = "oracle/oci"
     }
   }
-  backend "http" {
-    address       = "https://objectstorage.us-ashburn-1.oraclecloud.com/p/fw9s3EECU193SfQY2bV_X9xnT6YpM_0WA6CE-LMXLh31TN66E0QmKysaF2k352Gr/n/idhpsc1eth7t/b/terraform-ashburn/o/hcl/terraform.tfstate"
-    update_method = "PUT"
+  backend "s3" {
+    bucket                      = "terraform-ashburn"
+    key                         = "hcl/terraform.tfstate"
+    region                      = "us-ashburn-1"
+    endpoint                    = "https://idhpsc1eth7t.compat.objectstorage.us-ashburn-1.oraclecloud.com"
+    skip_region_validation      = true
+    skip_credentials_validation = true
+    skip_metadata_api_check     = true
+    force_path_style            = true
   }
 }
 
